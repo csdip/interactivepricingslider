@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="main__wrapper">
+    <div class="section__title">
+        <h1 class="title">Simple, traffic-based pricing</h1>
+        <p class="description">Sign-up for our 30-day trial. No credit card required.</p>
+        <img src="img/pattern-circles.svg" alt="pattern-circles" class="pattern__circles">
+    </div>
+
+    <div class="pricing__container">
+        <div class="pricing__header">
+            <p class="views__text"><span class="update_text">100k</span> Pageviews</p>
+            <p class="price__text desktop">$<strong class="price_update">16</strong>.00<sup> / month</sup></p>
+        </div>
+        <div class="pricing__body">
+            <div id="range">
+                <input class="pricing_slider pricing_slider-mobile" min="0" max="100" type="range" name="slider" value="50" step="1">
+                <div id="selector">
+                    <div class="selectBtn"></div>
+                </div>
+            </div>
+            <p class="price__text mobile">$<strong class="price_update-mobile">16</strong>.00<sup> / month</sup></p>
+
+            <div class="pricing__togglebtn">
+                <p class="monthlybilling__text">Monthly Billing</p>
+                <button class="btn__toggle" type="button"></button>
+                <p class="yearlybilling__text">Yearly Billing</p>
+                <p class="discount__text"><span class="remove__mobile">25% discount</span><span class="add__mobile">-25%</span></p>
+            </div>
+        </div>
+        <div class="pricing__footer">
+            <ul class="allfeatures">
+                <li class="singlefeature">Unlimited websites</li>
+                <li class="singlefeature">100% data ownership</li>
+                <li class="singlefeature">Email reports</li>
+            </ul>
+            <button class="btn" type="button">Start my trial</button>
+        </div>
+    </div>
+</main>
+
+</body>
+
+<script>
+    let slider = document.querySelector('.pricing_slider')
+    let selector = document.querySelector('#selector')
+    let selectValue = document.querySelector('.price_update')
+    let selectValueMobile = document.querySelector('.price_update-mobile')
+
+    selectValue.innerHTML = slider.value;
+    slider.oninput= function(){
+        selectValue.innerHTML = slider.value;
+        selectValueMobile.innerHTML = slider.value;
+        selector.style.left = slider.value + "%";
+    }
+</script>
+</html>
