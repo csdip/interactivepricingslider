@@ -18,12 +18,12 @@
 
     <div class="pricing__container">
         <div class="pricing__header">
-            <p class="views__text"><span class="update_text">100k</span> Pageviews</p>
+            <p class="views__text"><span class="update_text">100</span>K Pageviews</p>
             <p class="price__text desktop">$<strong class="price_update">16</strong>.00<sup> / month</sup></p>
         </div>
         <div class="pricing__body">
             <div id="range">
-                <input class="pricing_slider pricing_slider-mobile" min="0" max="100" type="range" name="slider" value="50" step="1">
+                <input class="pricing_slider pricing_slider-mobile" min="0" max="100" type="range" name="slider" value="16" step="1">
                 <div id="selector">
                     <div class="selectBtn"></div>
                 </div>
@@ -54,13 +54,19 @@
     let slider = document.querySelector('.pricing_slider')
     let selector = document.querySelector('#selector')
     let selectValue = document.querySelector('.price_update')
+    let updateText = document.querySelector('.update_text')
     let selectValueMobile = document.querySelector('.price_update-mobile')
+    let btnToggle = document.querySelector('.btn__toggle')
 
     selectValue.innerHTML = slider.value;
     slider.oninput= function(){
         selectValue.innerHTML = slider.value;
         selectValueMobile.innerHTML = slider.value;
+        updateText.innerHTML = slider.value;
         selector.style.left = slider.value + "%";
     }
+    btnToggle.addEventListener('click', ()=>{
+        btnToggle.classList.toggle('active')
+    })
 </script>
 </html>
